@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function Navbar(){
     const activeStyle = "underline underline-offset-4";
     return(
-        <nav className=" flex justify-between fixed w-full px-8 py-5 text-sm">
+        <nav className=" flex justify-between fixed w-full px-8 py-5 text-sm top-0">
             <ul className="flex gap-3">
                 <li className="font-semibold text-l">
                     <NavLink to = '/' >
@@ -43,7 +43,7 @@ function Navbar(){
             </ul>
             <ul className="flex gap-3">
                 <li>
-                    <NavLink to = '/' className={({isActive}) => isActive? activeStyle: undefined}>
+                    <NavLink to = '/'>
                         hugo@gmail.com
                     </NavLink>
                 </li>
