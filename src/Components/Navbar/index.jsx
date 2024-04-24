@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
 
 function Navbar(){
+    const context = useContext(ShoppingCartContext) //imported to read the value of the global context, aka, count
+
     const activeStyle = "underline underline-offset-4";
     return(
         <nav className=" flex justify-between fixed w-full px-8 py-5 text-sm top-0">
@@ -64,7 +68,8 @@ function Navbar(){
                 </li>
                 <li>
                     <NavLink to = '/furniture' >
-                        0
+                        {context.count}
+                    {/* with this we can see the value of the actual counter change by the + on the cards */}
                     </NavLink>
                 </li>
                 
