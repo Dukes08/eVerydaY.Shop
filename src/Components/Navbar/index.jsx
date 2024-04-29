@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
+import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
 function Navbar(){
     const context = useContext(ShoppingCartContext) //imported to read the value of the global context, aka, count
@@ -66,11 +67,15 @@ function Navbar(){
                         Sign In
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink to = '/furniture' >
-                        {context.count}
+                <li className="flex justify-center">
+                         
+                    <ShoppingCartIcon className="w-6 h-6"/> 
+                    <div>
+                    {/* {context.count} */}
+                    </div>
+                    
                     {/* with this we can see the value of the actual counter change by the + on the cards */}
-                    </NavLink>
+                 
                 </li>
                 
             </ul>

@@ -1,40 +1,37 @@
-import {useRoutes, BrowserRouter} from 'react-router-dom'
+import { useRoutes, BrowserRouter } from 'react-router-dom'
+import  ShoppingCartProvider  from '../../Context'
 import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
-import SignIn from '../SignIn'
 import NotFound from '../NotFound'
-import React from 'react'
+import SignIn from '../SignIn'
 import Navbar from '../../Components/Navbar'
-import ShoppingCartProvider from '../../Context'
+// import './App.css'
 
-function AppRoutes (){
-  let routes;
-  return (
-     routes = useRoutes(
-      [
-        {path:'/', element:<Home />},
-        {path:'/my-account', element:<MyAccount />},
-        {path:'/my-order', element:<MyOrder />},
-        {path:'/my-orders', element:<MyOrders />},
-        {path:'/sign-in', element:<SignIn />},
-        {path:'/*', element:<NotFound />},
-        
+const AppRoutes = () => {
+  let routes = useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/my-account', element: <MyAccount /> },
+    { path: '/my-order', element: <MyOrder /> },
+    { path: '/my-orders', element: <MyOrders /> },
+    { path: '/sign-in', element: <SignIn /> },
+    { path: '/*', element: <NotFound /> },
+  ])
 
-     ]
-    )
-  )
+  return routes
 }
 
-function App(){
-  return(
-  <ShoppingCartProvider>
-    <BrowserRouter>
-    <AppRoutes/>
-    <Navbar/>
-    </BrowserRouter>
-  </ShoppingCartProvider>
+const App = () => {
+  return (
+
+    //when we wrap BrowserRouter within the Provider each child of BrowserRouter has access to the context, AppRoutes being a child have acces to the context so the pages this render have access too
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 
